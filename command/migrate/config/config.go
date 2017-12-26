@@ -134,7 +134,7 @@ func (m *Manager) Down() {
 
 	data, _ := jsoniter.Marshal(r)
 	dataStr := string(data)
-	log := fmt.Sprintf("down, record %s. err %v", dataStr, err)
+	log := fmt.Sprintf("down, record %s, err %v", dataStr, err)
 	c.Logs = append(c.Logs, log)
 
 	m.c = c
@@ -172,7 +172,7 @@ func (m *Manager) upOne(file string) {
 
 	data, _ := jsoniter.Marshal(c.Records[i])
 	dataStr := string(data)
-	log := fmt.Sprintf("up, record %s. err %v", dataStr, err)
+	log := fmt.Sprintf("up, record %s, err %v", dataStr, err)
 	c.Logs = append(c.Logs, log)
 
 	m.c = c

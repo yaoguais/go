@@ -13,7 +13,7 @@ import (
 var AddCmd = &cobra.Command{
 	Use:   "add",
 	Short: "",
-	Long:  ``,
+	Long:  "",
 	Run: func(cmd *cobra.Command, args []string) {
 		if len(args) < 1 {
 			fmt.Println("empty name")
@@ -38,4 +38,8 @@ var AddCmd = &cobra.Command{
 
 		fmt.Printf("%s\n%s\n", upFilename, downFilename)
 	},
+}
+
+func init() {
+	AddCmd.PersistentFlags().StringP("filesDir", "d", "database", "Directory for migrate files")
 }

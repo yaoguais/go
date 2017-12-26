@@ -12,7 +12,7 @@ import (
 var InfoCmd = &cobra.Command{
 	Use:   "info",
 	Short: "",
-	Long:  ``,
+	Long:  "",
 	Run: func(cmd *cobra.Command, args []string) {
 		cfgFile := util.ConfigFile(cmd)
 		fsDir := util.FilesDir(cmd)
@@ -42,4 +42,9 @@ var InfoCmd = &cobra.Command{
 			}
 		}
 	},
+}
+
+func init() {
+	InfoCmd.PersistentFlags().StringP("migrateConfig", "m", "database/migrate.json", "File for migrate data persistent")
+	InfoCmd.PersistentFlags().StringP("filesDir", "d", "database", "Directory for migrate files")
 }

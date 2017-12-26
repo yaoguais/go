@@ -11,8 +11,8 @@ import (
 
 var MigrateCmd = &cobra.Command{
 	Use:   "migrate [command]",
-	Short: "database migration",
-	Long:  `database migration tools.`,
+	Short: "Run database migrations",
+	Long:  "",
 }
 
 func init() {
@@ -21,11 +21,4 @@ func init() {
 	MigrateCmd.AddCommand(add.AddCmd)
 	MigrateCmd.AddCommand(up.UpCmd)
 	MigrateCmd.AddCommand(down.DownCmd)
-
-	MigrateCmd.PersistentFlags().StringP("migrateConfig", "m", "database/migrate.json", "migrate config file")
-	MigrateCmd.PersistentFlags().StringP("filesDir", "d", "database", "migrate files")
-	MigrateCmd.PersistentFlags().StringP("dsn", "s", "", "database connect dsn")
-	MigrateCmd.PersistentFlags().StringP("driver", "v", "mysql", "database connect driver")
-	MigrateCmd.PersistentFlags().StringP("config", "c", "", "config file")
-	MigrateCmd.PersistentFlags().StringP("keyPrefix", "k", "mysql", "key prefix of config file")
 }

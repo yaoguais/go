@@ -11,7 +11,7 @@ import (
 var InitCmd = &cobra.Command{
 	Use:   "init",
 	Short: "",
-	Long:  ``,
+	Long:  "",
 	Run: func(cmd *cobra.Command, args []string) {
 		cfgFileFlag := cmd.Flags().Lookup("migrateConfig")
 		if cfgFileFlag == nil {
@@ -31,4 +31,8 @@ var InitCmd = &cobra.Command{
 
 		fmt.Printf("Create config %s\n", cfgFile)
 	},
+}
+
+func init() {
+	InitCmd.PersistentFlags().StringP("migrateConfig", "m", "database/migrate.json", "File for migrate data persistent")
 }

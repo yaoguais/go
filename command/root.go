@@ -12,8 +12,8 @@ var (
 	Name    = "yaoguai"
 	RootCmd = &cobra.Command{
 		Use:   Name + " [command]",
-		Short: Name + " command tools",
-		Long:  Name + ` command tools.`,
+		Short: "",
+		Long:  "",
 	}
 )
 
