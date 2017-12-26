@@ -11,13 +11,12 @@ import (
 )
 
 var AddCmd = &cobra.Command{
-	Use:   "add",
+	Use:   "add name",
 	Short: "",
 	Long:  "",
 	Run: func(cmd *cobra.Command, args []string) {
 		if len(args) < 1 {
-			fmt.Println("empty name")
-			os.Exit(1)
+			util.Fatal("empty name")
 		}
 
 		fsDir := util.FilesDir(cmd)
