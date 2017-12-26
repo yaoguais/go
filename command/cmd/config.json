@@ -1,0 +1,10 @@
+{
+    "mysql": {
+        "user": "michong",
+        "password": "michong",
+        "host":"192.168.1.34",
+        "port": 3306,
+        "database": "service_invite_bonus",
+        "charset": "utf8mb4"
+    }
+}
