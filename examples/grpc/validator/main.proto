@@ -1,0 +1,25 @@
+syntax="proto3";
+
+package main;
+
+import "github.com/mwitkow/go-proto-validators/validator.proto";
+
+service User {
+    rpc Create(CreateRequest) returns (CreateResponse) {}
+}
+
+// https://github.com/mwitkow/go-proto-validators/blob/master/validator.proto
+// http://colobu.com/2017/03/16/Protobuf3-language-guide/#%E6%A0%87%E9%87%8F%E6%95%B0%E5%80%BC%E7%B1%BB%E5%9E%8B
+
+message CreateRequest {
+    string username = 1 [(validator.field) = {string_not_empty: true}];
+    string password = 2 [(validator.field) = {regex: "^[a-zA-Z0-9]{6,}$"}];
+    sint64 age      = 3 [(validator.field) = {int_gt: 0, int_lt: 120}];
+}
+
+message CreateResponse {
+    uint64 id = 1;
+    string username = 2;
+    string password = 3;
+    sint64 age = 4;
+}
